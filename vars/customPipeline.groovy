@@ -1,4 +1,4 @@
-def call(int buildNumber) {
+def call(int buildNumber, Map config) {
   if (buildNumber % 2 == 0) {
     pipeline {
       agent any
@@ -17,6 +17,31 @@ def call(int buildNumber) {
         stage('Odd Stage') {
           steps {
             echo "The build number is odd"
+          }
+        }
+        stage ('Checkout') {
+          steps {
+            checkout scm
+          }
+        }
+        stage ('Clean') {
+          steps {
+            sh "./gradlew clean"
+          }
+        }
+        stage ('Build') {
+          steps {
+            sh "./gradlew build"
+          }
+        }
+        stage ('Test') {
+          when {
+            expression {
+              return (config.containsKey('runTest'))
+            }
+          }
+          steps {
+            sh "./gradlew test"
           }
         }
       }
