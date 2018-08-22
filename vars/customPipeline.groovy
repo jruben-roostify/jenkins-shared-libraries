@@ -37,7 +37,7 @@ def call(int buildNumber, Map config) {
         stage ('Test') {
           when {
             expression {
-              return (config.containsKey('runTest'))
+              return ( config.containsKey('runTest') && config.get('runTest') )
             }
           }
           steps {
