@@ -2,7 +2,7 @@ def buildPipeline() {
 
     def pipeline
     node {
-        pipeline = new JenkinsPipelineBuilder()
+        pipeline = new pipelineBuilder()
         pipeline.init()
     }
     return pipeline;
