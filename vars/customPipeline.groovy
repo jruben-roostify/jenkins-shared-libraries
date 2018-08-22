@@ -34,7 +34,8 @@ def call(int buildNumber, Map config) {
             sh "./gradlew build"
           }
         }
-        stage ('Test') {
+        if( config.containsKey('runTest') && config.get('runTest') ){
+          stage ('Test') {
           when {
             expression {
               return ( config.containsKey('runTest') && config.get('runTest') )
@@ -44,6 +45,9 @@ def call(int buildNumber, Map config) {
             sh "./gradlew test"
           }
         }
+        
+        }
+        
       }
     }
   }
