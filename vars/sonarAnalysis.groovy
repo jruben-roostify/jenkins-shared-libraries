@@ -9,7 +9,7 @@ def getRepoName(){
 }
 
 void sonarAnalysis(String buildFileLocation, Map config){
-    script{
+    try{
         if (env.GIT_BRANCH == 'develop') {
         println 'Performing full develop branch Analysis';
         sh "./gradlew -b "+buildFileLocation+" sonar -Dsonar.host.url='${SONAR_URL}' -Dsonar.login='${SONAR_PASSWORD}'"
@@ -19,8 +19,11 @@ void sonarAnalysis(String buildFileLocation, Map config){
         }else{
             println 'Running Sonar analysis on branch';
             sh "./gradlew -b "+buildFileLocation+" sonar -Dsonar.host.url='${SONAR_URL}' -Dsonar.login="+getRepoName()+ -Dsonar.github.repository='${env.CUSTOM_SONAR_REPO_NAME}' -Dsonar.branch='${env.GIT_BRANCH}' -i"
-        }
-    }  
+        } 
+    }catch (e) {
+            currentBuild.result = "FAILED"
+            throw e
+    }
 }
 
 return this;
