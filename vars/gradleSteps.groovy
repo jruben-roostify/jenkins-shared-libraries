@@ -12,12 +12,12 @@ def call(Map config) {
         }
         stage ('Clean') {
           steps {
-            sh "gradle -b ${buildFilePath} clean"
+            sh "gradle clean"
           }
         }
         stage ('Build') {
           steps {
-            sh "gradle -b ${buildFilePath} build"
+            sh "gradle build"
           }
         }
         
@@ -28,7 +28,7 @@ def call(Map config) {
             }
           }
           steps {
-            sh "gradle -b ${buildFilePath} test"
+            sh "gradle test"
           }
         }
       }
