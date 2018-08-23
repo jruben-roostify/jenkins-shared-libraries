@@ -1,3 +1,7 @@
+void initialize() {
+    echo 'Initializing sonarAnalysis.'
+}
+
 def getRepoName(){
     def repo = "${env.GIT_URL}"
     repo_val = repo.replaceAll('https://github.com/', '').replaceAll('.git', '')
@@ -18,3 +22,5 @@ void sonarAnalysis(String buildFileLocation, Map config){
         }
     }  
 }
+
+return this;
