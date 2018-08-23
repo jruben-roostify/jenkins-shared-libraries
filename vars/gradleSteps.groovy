@@ -1,5 +1,5 @@
 def call(Map config) {
-    buildFilePath = ./build.gradle
+    buildFilePath = "./build.gradle"
     if(config.containsKey('buildFilePath')){
       buildFilePath = config.get('buildFilePath')
     }
