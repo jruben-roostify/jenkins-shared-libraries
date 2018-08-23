@@ -18,7 +18,7 @@ def call(Map config) {
         }
         stage ('Build') {
           steps {
-            sh "./gradlew build"
+            sh "./gradlew -b ${buildFilePath} build"
           }
         }
         
@@ -29,7 +29,7 @@ def call(Map config) {
             }
           }
           steps {
-            sh "./gradlew test"
+            sh "./gradlew -b ${buildFilePath} test"
           }
         }
       }
