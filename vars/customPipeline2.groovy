@@ -1,12 +1,7 @@
 def call(int buildNumber, Map config) {
     pipeline {
       agent any
-      stages {
-        stage('Odd Stage') {
-          steps {
-            echo "The build number is odd"
-          }
-        }
+       stages {
         stage ('Checkout') {
           steps {
             checkout scm
@@ -14,12 +9,12 @@ def call(int buildNumber, Map config) {
         }
         stage ('Clean') {
           steps {
-            sh "./gradlew clean"
+            sh "gradle clean"
           }
         }
         stage ('Build') {
           steps {
-            sh "./gradlew build"
+            sh "gradle build"
           }
         }
         
@@ -30,7 +25,7 @@ def call(int buildNumber, Map config) {
             }
           }
           steps {
-            sh "./gradlew test"
+            sh "gradle test"
           }
         }
       }
