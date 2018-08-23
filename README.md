@@ -1,2 +1,2 @@
 # jenkins-shared-libraries
-Common library for mundane Jenkins jobs
+Common Jenkins library for Java projects to be used accross the organization.
