@@ -18,7 +18,11 @@ def call(Map config) {
         }
         stage ('Build') {
           steps {
-            sh "./gradlew -b ${buildFilePath} build"
+            //sh "./gradlew -b ${buildFilePath} build"
+            gradle {
+                tasks('build')
+                switches('--info')
+            }
           }
         }
         
