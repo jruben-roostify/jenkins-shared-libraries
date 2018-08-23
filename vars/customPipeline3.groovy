@@ -21,7 +21,7 @@ def call(Map config) {
             //sh "./gradlew -b ${buildFilePath} build"
             gradle {
                 tasks('build')
-                switches('--info')
+                switches('-b ${buildFilePath} --info')
             }
           }
         }
