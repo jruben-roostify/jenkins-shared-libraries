@@ -1,4 +1,4 @@
-def call(int buildNumber, Map config) {
+def call(Map config) {
     pipeline {
       agent any
        stages {
