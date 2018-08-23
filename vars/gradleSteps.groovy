@@ -1,6 +1,6 @@
 def call(Map config) {
-    def buildFilePath = "./build.gradle"
-    /*if(config.containsKey('buildFilePath')){
+    /*def buildFilePath = "./build.gradle"
+    if(config.containsKey('buildFilePath')){
       buildFilePath = config.get('buildFilePath')
     }*/
     pipeline {
