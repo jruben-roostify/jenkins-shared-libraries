@@ -13,7 +13,7 @@ def call(Map config) {
         }
         stage ('Clean') {
           steps {
-            sh "./gradlew clean"
+              sh "./gradlew -b ${buildFilePath} clean"
           }
         }
         stage ('Build') {
