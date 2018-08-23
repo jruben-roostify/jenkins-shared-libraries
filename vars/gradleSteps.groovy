@@ -32,5 +32,4 @@ def call(Map config) {
           }
         }
       }
-    }
-  }
+   }
