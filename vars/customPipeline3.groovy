@@ -22,7 +22,7 @@ def call(Map config) {
           }
         }
         
-          stage ('Test') {
+        stage ('Test') {
           when {
             expression {
               return ( config.containsKey('runTest') && config.get('runTest') )
@@ -32,6 +32,15 @@ def call(Map config) {
             sh "./gradlew -b ${buildFilePath} test"
           }
         }
+        stage ('Analysis'){
+            stages {
+                stage ('Code Coverage') {
+                    steps {
+                        jacoco buildOverBuild: true, changeBuildStatus: true
+                    }
+                }
+            }
+       }  
       }
     }
 }
