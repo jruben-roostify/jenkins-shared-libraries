@@ -44,7 +44,9 @@ def call(Map config) {
      }
     }
     steps {
-     sonarAnalysis.sonarAnalysis(${buildFilePath}, [:])
+     script{
+      sonarAnalysis.sonarAnalysis(${buildFilePath}, [:])
+     }
     }
    }
   }
