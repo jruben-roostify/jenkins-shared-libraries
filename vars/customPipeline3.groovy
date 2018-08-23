@@ -13,20 +13,12 @@ def call(Map config) {
         }
         stage ('Clean') {
           steps {
-              //sh "./gradlew -b ${buildFilePath} clean"
-              gradle {
-                tasks('clean')
-                switches('-b ${buildFilePath}')
-            }
+              sh "./gradlew -b ${buildFilePath} clean"
           }
         }
         stage ('Build') {
           steps {
-            //sh "./gradlew -b ${buildFilePath} build"
-            gradle {
-                tasks('build')
-                switches('-b ${buildFilePath}')
-            }
+            sh "./gradlew -b ${buildFilePath} build"
           }
         }
         
