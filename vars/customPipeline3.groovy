@@ -34,13 +34,11 @@ def call(Map config) {
    }
    stage('Analysis') {
     parllel {
-     stages {
       stage('Code Coverage') {
        steps {
         jacoco buildOverBuild: true, changeBuildStatus: true
        }
       }
-     }
     }
    }
   }
