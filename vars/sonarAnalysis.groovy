@@ -2,12 +2,14 @@ void initialize() {
     echo 'Initializing sonarAnalysis.'
 }
 
+@NonCPS
 def getRepoName(){
     def repo = "${env.GIT_URL}"
     repo_val = repo.replaceAll('https://github.com/', '').replaceAll('.git', '')
     return repo_val;
 }
 
+@NonCPS
 void sonarAnalysis(String buildFileLocation, Map config){
     try{
         if (env.GIT_BRANCH == 'develop') {
