@@ -35,7 +35,7 @@ def call(Map config) {
    stage('Analysis') {
        steps {
         jacoco buildOverBuild: true, changeBuildStatus: true
-        sonarAnalysis.sonarAnalysis(${buildFilePath})
+        //sonarAnalysis.sonarAnalysis(${buildFilePath})
        }
    }
   }
