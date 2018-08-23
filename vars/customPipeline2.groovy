@@ -14,7 +14,7 @@ def call(int buildNumber, Map config) {
         }
         stage ('Build') {
           steps {
-            sh "/gradlew build"
+            sh "./gradlew build"
           }
         }
         
@@ -25,7 +25,7 @@ def call(int buildNumber, Map config) {
             }
           }
           steps {
-            sh "/gradlew test"
+            sh "./gradlew test"
           }
         }
       }
