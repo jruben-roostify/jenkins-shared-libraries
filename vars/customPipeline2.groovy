@@ -9,12 +9,12 @@ def call(int buildNumber, Map config) {
         }
         stage ('Clean') {
           steps {
-            sh "gradle clean"
+            sh "./gradlew clean"
           }
         }
         stage ('Build') {
           steps {
-            sh "gradle build"
+            sh "/gradlew build"
           }
         }
         
@@ -25,7 +25,7 @@ def call(int buildNumber, Map config) {
             }
           }
           steps {
-            sh "gradle test"
+            sh "/gradlew test"
           }
         }
       }
