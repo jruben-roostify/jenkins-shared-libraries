@@ -1,4 +1,8 @@
 def call(Map config) {
+    buildFilePath = "./build.gradle"
+    if(config.containsKey('buildFilePath')){
+      buildFilePath = config.get('buildFilePath')
+    }
     pipeline {
       agent any
        stages {
