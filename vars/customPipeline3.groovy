@@ -32,8 +32,8 @@ def call(Map config) {
      sh "./gradlew -b ${buildFilePath} test"
     }
    }
-   parallel {
-    stage('Analysis') {
+   stage('Analysis') {
+    parllel {
      stages {
       stage('Code Coverage') {
        steps {
